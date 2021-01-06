@@ -1,0 +1,23 @@
+.app-root {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.header-second-line {
+    height: 32px;
+    font-size: 16px;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.root-sidenav-container {
+    flex: 1;
+    .content-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

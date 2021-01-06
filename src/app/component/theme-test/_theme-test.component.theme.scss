@@ -1,0 +1,19 @@
+@import '~@angular/material/theming';
+
+@mixin theme-test-color($config-or-theme) {
+    // mat-get-color-config 可以自动判断，参数传主题对象，或者颜色配置对象都可以
+    $config: mat-get-color-config($config-or-theme);
+    
+    // 从配置对象中提取颜色
+    $accent: map-get($config, accent);
+    $accent-contrast:map-get($map: $accent, $key: contrast);
+    $background:map-get($map:$config, $key:background);
+    $foreground:map-get($map: $config, $key: foreground);
+
+    // 组件具体的样式类
+    .theme-test-container {
+        background-color: map-get($map:$background, $key: background);
+        color:map-get($map: $foreground, $key: base);
+        border: 5px solid map-get($map: $accent, $key: 400);
+    }
+  }

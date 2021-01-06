@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "md-theme-test"
+  "defaultProject": "md-theme-test",
+  "cli": {
+    "analytics": "b71bafa0-9407-4df4-9c5f-dc7e8facee92"
+  }
 }

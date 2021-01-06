@@ -1,1 +1,35 @@
+@import '~@angular/material/theming';
+@import './theme/green-theme.-config';
+
+// component themes
+@import './app/app.component.theme.scss';
+@import './app/component/theme-test/theme-test.component.theme';
+
+@include mat-core();
+
+// 定义一个自定义颜色配置 (和前一篇一样）
+$candy-app-primary: mat-palette($mat-indigo);
+$candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+$candy-app-theme:   mat-light-theme((
+  color: (
+    primary: $candy-app-primary,
+    accent: $candy-app-accent,
+  )
+));
+
+@include angular-material-theme($candy-app-theme);
+
+@include app-component-color($candy-app-theme);
+@include theme-test-color($candy-app-theme);
+
+// 用一个类名包裹主题样式
+.unicorn-dark-theme {
+  @include angular-material-color($md-green-theme);
+  @include app-component-color($md-green-theme);
+  @include theme-test-color($md-green-theme);
+}
+
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
