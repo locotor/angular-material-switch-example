@@ -1,35 +1,99 @@
-@import '~@angular/material/theming';
-@import './theme/green-theme.-config';
+@import "~@angular/material/theming";
+@import "./theme/green-theme.-config";
 
 // component themes
-@import './app/app.component.theme.scss';
-@import './app/component/theme-test/theme-test.component.theme';
+@import "./app/app.component.theme.scss";
+@import "./app/component/theme-test/theme-test.component.theme";
 
 @include mat-core();
 
-// 定义一个自定义颜色配置 (和前一篇一样）
+// 定义一个默认的颜色配置
 $candy-app-primary: mat-palette($mat-indigo);
-$candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
-$candy-app-theme:   mat-light-theme((
-  color: (
-    primary: $candy-app-primary,
-    accent: $candy-app-accent,
+$candy-app-accent: mat-palette($mat-pink, A200, A100, A400);
+$candy-app-theme: mat-light-theme(
+  (
+    color: (
+      primary: $candy-app-primary,
+      accent: $candy-app-accent,
+    ),
   )
-));
+);
 
 @include angular-material-theme($candy-app-theme);
-
 @include app-component-color($candy-app-theme);
 @include theme-test-color($candy-app-theme);
 
-// 用一个类名包裹主题样式
-.unicorn-dark-theme {
-  @include angular-material-color($md-green-theme);
-  @include app-component-color($md-green-theme);
-  @include theme-test-color($md-green-theme);
+@mixin custom-color-theme($theme) {
+  @include angular-material-color($theme);
+  @include app-component-color($theme);
+  @include theme-test-color($theme);
+}
+
+$app-themes: (
+  amber-lime: (
+    primary: $mat-amber,
+    accent: $mat-lime,
+  ),
+  deeppurple-amber: (
+    primary: $mat-deep-purple,
+    accent: $mat-amber,
+  ),
+  pink-bluegrey: (
+    primary: $mat-pink,
+    accent: $mat-blue-gray,
+  ),
+  purple-green: (
+    primary: $mat-purple,
+    accent: $mat-green,
+  ),
+);
+
+@each $css-class, $theme in $app-themes {
+  $primary: mat-palette(map-get($theme, primary));
+  $accent: mat-palette(map-get($theme, accent));
+
+  .#{$css-class} {
+    @include custom-color-theme(
+      mat-light-theme(
+        (
+          color: (
+            primary: $primary,
+            accent: $accent,
+          ),
+        )
+      )
+    );
+  }
+
+  .#{$css-class}-dark {
+    $dark-theme: mat-dark-theme(
+      (
+        color: (
+          primary: $primary,
+          accent: $accent,
+        ),
+      )
+    );
+    @include custom-color-theme(
+      mat-dark-theme(
+        (
+          color: (
+            primary: $primary,
+            accent: $accent,
+          ),
+        )
+      )
+    );
+  }
 }
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

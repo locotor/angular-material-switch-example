@@ -9,23 +9,28 @@ import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 })
 export class AppComponent {
 
-  constructor(private overlayContainer: OverlayContainer) { }
-
-  title = 'md-theme-test';
+  overlayContainerEle: HTMLElement
+  themelist = [
+    "amber-lime",
+    "amber-lime-dark",
+    "deeppurple-amber",
+    "deeppurple-amber-dark",
+    "pink-bluegrey",
+    "pink-bluegrey-dark",
+    "purple-green",
+    "purple-green-dark"
+  ]
+  currentTheme = '';
   isDarkMode = false;
 
-  switchTheme(event: MatSlideToggleChange) {
-    this.isDarkMode = event.checked;
-    this.processOverlayBaseComponentTheme(event.checked);
+  constructor(overlayContainer: OverlayContainer) {
+    this.overlayContainerEle = overlayContainer.getContainerElement();
   }
 
-  private processOverlayBaseComponentTheme(checked: boolean) {
-    const overlayContainerElement = this.overlayContainer.getContainerElement()
-    const themeWrapperClassName = 'unicorn-dark-theme'
-    if (checked) {
-      overlayContainerElement.classList.add(themeWrapperClassName);
-    } else {
-      overlayContainerElement.classList.remove(themeWrapperClassName);
-    }
+  switchTheme(theme: string) {
+    if (this.currentTheme)
+      this.overlayContainerEle.classList.remove(this.currentTheme);
+    this.currentTheme = theme
+    this.overlayContainerEle.classList.add(this.currentTheme);
   }
 }
