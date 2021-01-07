@@ -1,4 +1,4 @@
-<div class="app-root" [class.unicorn-dark-theme]="isDarkMode">
+<div class="app-root" [class]="currentTheme">
   <mat-toolbar color="primary">
     <mat-toolbar-row>
       <span>Theme Test App</span>
@@ -6,13 +6,11 @@
     <mat-toolbar-row class="header-second-line">
       <!-- <span>tool Line</span> -->
       <div class="example-spacer"></div>
-      <mat-slide-toggle [checked]="isDarkMode" (change)="switchTheme($event)">switch theme
-      </mat-slide-toggle>
-      <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+      <button mat-button [matMenuTriggerFor]="menu">theme list</button>
       <!-- test for overlay-base component -->
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>Item 1</button>
-        <button mat-menu-item>Item 2</button>
+        <button mat-menu-item>默认</button>
+        <button mat-menu-item *ngFor="let theme of themelist" (click)="switchTheme(theme)">{{theme}}</button>
       </mat-menu>
     </mat-toolbar-row>
   </mat-toolbar>

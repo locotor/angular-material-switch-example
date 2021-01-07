@@ -10,13 +10,24 @@ import { ThemeService } from './services/theme.service';
 })
 export class AppComponent {
 
+  themelist = [
+    'amber-lime',
+    'amber-lime-dark',
+    'deeppurple-amber',
+    'deeppurple-amber-dark',
+    'pink-bluegrey',
+    'pink-bluegrey-dark',
+    'purple-green',
+    'purple-green-dark'
+  ];
+  currentTheme = '';
+  title = 'md-theme-test';
+  isDarkMode = false;
+
   constructor(
     private overlayContainer: OverlayContainer,
     private themeService: ThemeService
   ) { }
-
-  title = 'md-theme-test';
-  isDarkMode = false;
 
   switchTheme(event: MatSlideToggleChange): void {
     this.isDarkMode = event.checked;
@@ -32,5 +43,6 @@ export class AppComponent {
     } else {
       overlayContainerElement.classList.remove(themeWrapperClassName);
     }
+
+
   }
-}
