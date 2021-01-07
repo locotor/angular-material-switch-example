@@ -11,14 +11,7 @@ export class AppComponent {
 
   overlayContainerEle: HTMLElement
   themelist = [
-    "amber-lime",
-    "amber-lime-dark",
-    "deeppurple-amber",
-    "deeppurple-amber-dark",
-    "pink-bluegrey",
-    "pink-bluegrey-dark",
-    "purple-green",
-    "purple-green-dark"
+    'green-amber-dark'
   ]
   currentTheme = '';
   isDarkMode = false;
@@ -28,9 +21,15 @@ export class AppComponent {
   }
 
   switchTheme(theme: string) {
-    if (this.currentTheme)
-      this.overlayContainerEle.classList.remove(this.currentTheme);
-    this.currentTheme = theme
-    this.overlayContainerEle.classList.add(this.currentTheme);
+    const id = `style-manager-${theme}`
+    const link = document.getElementById(id);
+    if (!link) {
+      const linkEl = document.createElement('link');
+      linkEl.setAttribute('rel', 'stylesheet');
+      linkEl.setAttribute('type', 'text/css');
+      linkEl.setAttribute('id', id);
+      linkEl.setAttribute('href',`${theme}-theme.css`);
+      document.head.appendChild(linkEl);
+    }
   }
 }

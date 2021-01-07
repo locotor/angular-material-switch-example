@@ -1,0 +1,23 @@
+@import "~@angular/material/theming";
+
+// component themes
+@import "../app/app.component.theme";
+@import "../app/component/theme-test/theme-test.component.theme";
+
+@include mat-core();
+
+// 定义一个默认的颜色配置
+$candy-app-primary: mat-palette($mat-indigo);
+$candy-app-accent: mat-palette($mat-pink, A200, A100, A400);
+$candy-app-theme: mat-light-theme(
+    (
+        color: (
+            primary: $candy-app-primary,
+            accent: $candy-app-accent,
+        ),
+    )
+);
+
+@include angular-material-theme($candy-app-theme);
+@include app-component-color($candy-app-theme);
+@include theme-test-color($candy-app-theme);

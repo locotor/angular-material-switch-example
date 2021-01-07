@@ -1,0 +1,18 @@
+@import "~@angular/material/theming";
+
+@import "../app/app.component.theme.scss";
+@import "../app/component/theme-test/theme-test.component.theme";
+
+$green-primary: mat-palette($mat-green);
+$amber-accent: mat-palette($mat-amber);
+
+$green-amber-dark-theme: mat-dark-theme((
+  color: (
+    primary: $green-primary,
+    accent: $amber-accent
+  )
+));
+
+@include angular-material-theme($green-amber-dark-theme);
+@include app-component-color($green-amber-dark-theme);
+@include theme-test-color($green-amber-dark-theme);
