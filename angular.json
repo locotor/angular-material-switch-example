@@ -39,6 +39,10 @@
               {
                 "input": "src/theme/green-amber-dark-theme.scss",
                 "inject": false
+              },
+              {
+                "input": "src/theme/blue-yellow-light-theme.scss",
+                "inject": false
               }
             ],
             "scripts": []

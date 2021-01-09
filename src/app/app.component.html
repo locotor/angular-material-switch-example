@@ -9,7 +9,7 @@
       <button mat-button [matMenuTriggerFor]="menu">theme list</button>
       <!-- test for overlay-base component -->
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>默认</button>
+        <button mat-menu-item (click)="switchTheme('')">默认</button>
         <button mat-menu-item *ngFor="let theme of themelist" (click)="switchTheme(theme)">{{theme}}</button>
       </mat-menu>
     </mat-toolbar-row>

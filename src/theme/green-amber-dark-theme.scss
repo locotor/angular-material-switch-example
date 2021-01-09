@@ -3,16 +3,16 @@
 @import "../app/app.component.theme.scss";
 @import "../app/component/theme-test/theme-test.component.theme";
 
-$green-primary: mat-palette($mat-green);
-$amber-accent: mat-palette($mat-amber);
+$primary: mat-palette($mat-green);
+$accent: mat-palette($mat-amber);
 
-$green-amber-dark-theme: mat-dark-theme((
+$theme: mat-dark-theme((
   color: (
-    primary: $green-primary,
-    accent: $amber-accent
+    primary: $primary,
+    accent: $accent
   )
 ));
 
-@include angular-material-theme($green-amber-dark-theme);
-@include app-component-color($green-amber-dark-theme);
-@include theme-test-color($green-amber-dark-theme);
+@include angular-material-theme($theme);
+@include app-component-color($theme);
+@include theme-test-color($theme);

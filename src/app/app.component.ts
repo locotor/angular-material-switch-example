@@ -9,10 +9,11 @@ import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 })
 export class AppComponent {
 
-  overlayContainerEle: HTMLElement
+  overlayContainerEle: HTMLElement;
   themelist = [
-    'green-amber-dark'
-  ]
+    'green-amber-dark',
+    'blue-yellow-light'
+  ];
   currentTheme = '';
   isDarkMode = false;
 
@@ -20,16 +21,21 @@ export class AppComponent {
     this.overlayContainerEle = overlayContainer.getContainerElement();
   }
 
-  switchTheme(theme: string) {
-    const id = `style-manager-${theme}`
+  switchTheme(theme: string): void {
+    const id = 'lazy-load-theme';
     const link = document.getElementById(id);
     if (!link) {
       const linkEl = document.createElement('link');
       linkEl.setAttribute('rel', 'stylesheet');
       linkEl.setAttribute('type', 'text/css');
       linkEl.setAttribute('id', id);
-      linkEl.setAttribute('href',`${theme}-theme.css`);
+      linkEl.setAttribute('href', `${theme}-theme.css`);
       document.head.appendChild(linkEl);
+    } else {
+      if (!theme) {
+        document.head.removeChild(link);
+      }
+      (link as HTMLLinkElement).href = `${theme}-theme.css`;
     }
   }
 }

@@ -1,0 +1,18 @@
+@import "~@angular/material/theming";
+
+@import "../app/app.component.theme.scss";
+@import "../app/component/theme-test/theme-test.component.theme";
+
+$primary: mat-palette($mat-blue);
+$accent: mat-palette($mat-yellow);
+
+$theme: mat-light-theme((
+  color: (
+    primary: $primary,
+    accent: $accent
+  )
+));
+
+@include angular-material-theme($theme);
+@include app-component-color($theme);
+@include theme-test-color($theme);
