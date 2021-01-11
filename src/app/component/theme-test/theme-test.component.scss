@@ -1,8 +1,10 @@
-.theme-test-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 500px;
-    width: 500px;
+:host {
+  height: 100%;
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.grid-tile {
+  border: 1px solid;
 }

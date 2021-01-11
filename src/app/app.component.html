@@ -21,42 +21,40 @@
     <mat-sidenav mode="side" opened>
       <div class="side-wrapper">
         <!-- side nav -->
-        <mat-nav-list>
+        <mat-nav-list class="side-navi">
           <mat-list-item>
-            <button mat-icon-button>
-              <mat-icon color="accent">dashboard</mat-icon>
-            </button>
-            <a matLine href="/">dashboard</a>
+            <mat-icon color="accent">dashboard</mat-icon>
           </mat-list-item>
           <mat-list-item>
-            <button mat-icon-button>
-              <mat-icon color="primary">devices</mat-icon>
-            </button>
-            <a matLine href="/">devices</a>
+            <mat-icon color="primary">devices</mat-icon>
           </mat-list-item>
           <mat-list-item>
-            <button mat-icon-button>
-              <mat-icon color="primary">access_alarm</mat-icon>
-            </button>
-            <a matLine href="/">alarm</a>
+            <mat-icon color="primary">access_alarm</mat-icon>
           </mat-list-item>
           <mat-list-item>
-            <button mat-icon-button>
-              <mat-icon color="primary">data_usage</mat-icon>
-            </button>
-            <a matLine href="/">usage</a>
+            <mat-icon color="primary">data_usage</mat-icon>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-icon color="primary">sensors</mat-icon>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-icon color="primary">shop</mat-icon>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-icon color="primary">source</mat-icon>
           </mat-list-item>
         </mat-nav-list>
         <!-- personal settings -->
-        <div class="personal-settings">
-          <mat-icon color="primary">person</mat-icon>
-          <span>settings</span>
-        </div>
+        <mat-nav-list>
+          <mat-list-item>
+            <mat-icon color="primary">person</mat-icon>
+          </mat-list-item>
+        </mat-nav-list>
       </div>
     </mat-sidenav>
     <mat-sidenav-content class="content-container">
       <!-- test for custom component -->
-      <!-- <app-theme-test></app-theme-test> -->
+      <app-theme-test></app-theme-test>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
