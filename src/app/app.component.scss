@@ -21,3 +21,21 @@
         justify-content: center;
     }
 }
+
+.side-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+
+    mat-nav-list {
+        flex: 1;
+    }
+
+    .personal-settings {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+}
