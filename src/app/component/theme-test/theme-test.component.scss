@@ -5,3 +5,24 @@
   box-sizing: border-box;
 }
 
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.more-spinner-wrapper {
+  @include flex-column();
+  & > div {
+    flex: 1;
+  }
+}
+
+.big-card-wrapper {
+  @include flex-column();
+  .example-card {
+    flex: 1;
+    margin-top: 20px;
+  }
+}

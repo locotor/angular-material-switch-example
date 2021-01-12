@@ -17,11 +17,16 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatCardModule } from '@angular/material/card';
+
+import { ProgressSpinnerCardComponent } from './component/progress-spinner-card/progress-spinner-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ThemeTestComponent
+    ThemeTestComponent,
+    ProgressSpinnerCardComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatGridListModule,
     MatTableModule,
     MatPaginatorModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

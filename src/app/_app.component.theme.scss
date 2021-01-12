@@ -1,15 +1,28 @@
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 
 @mixin app-component-color($config-or-theme) {
-    // mat-get-color-config 可以自动判断，参数传主题对象，或者颜色配置对象都可以
-    $config: mat-get-color-config($config-or-theme);
-    
-    // 从配置对象中提取颜色
-    $primary: map-get($config, primary);
-    // 组件具体的样式类
-    .header-second-line {
-      // 使用 mat-color 从调色盘提取特定色调的颜色值。
-      background-color: mat-color($primary, lighter);
-      color:mat-contrast($primary, lighter);
-    }
+  // mat-get-color-config 可以自动判断，参数传主题对象，或者颜色配置对象都可以
+  $config: mat-get-color-config($config-or-theme);
+
+  // 从配置对象中提取颜色
+  $primary: map-get($config, primary);
+  $accent: map-get($config, accent);
+  $background: map-get($config, background);
+  // 组件具体的样式类
+  .header-second-line {
+    // 使用 mat-color 从调色盘提取特定色调的颜色值。
+    background-color: mat-color($primary, lighter);
+    color: mat-contrast($primary, lighter);
   }
+
+  .status-bg {
+    background-color: map-get($background, status-bar);
+  }
+
+  .primary-color {
+    color: mat-color($primary);
+  }
+  .accent-color {
+    color: mat-color($accent);
+  }
+}

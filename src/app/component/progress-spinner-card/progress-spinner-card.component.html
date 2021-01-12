@@ -1,0 +1,11 @@
+<div class="spinner-wrapper">
+    <mat-progress-spinner class="example-margin" [color]="color" mode="determinate" [value]="value" [strokeWidth]="2">
+    </mat-progress-spinner>
+    <div class="circle-center status-bg">
+        <mat-icon [color]="color" *ngIf="icon">{{icon}}</mat-icon>
+    </div>
+</div>
+<div>
+    <p class="value-text" [class]="textColor()">{{value}}%</p>
+    <p>ters fur displke masegea</p>
+</div>

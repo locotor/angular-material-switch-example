@@ -1,0 +1,10 @@
+
+$primary: mat-palette($mat-green);
+$accent: mat-palette($mat-orange);
+
+$md-green-theme: mat-dark-theme((
+  color: (
+    primary: $primary,
+    accent: $accent
+  )
+));

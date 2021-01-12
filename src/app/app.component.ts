@@ -14,12 +14,12 @@ export class AppComponent {
   title = 'md-theme-test';
   isDarkMode = false;
 
-  switchTheme(event: MatSlideToggleChange) {
+  switchTheme(event: MatSlideToggleChange): void {
     this.isDarkMode = event.checked;
     this.processOverlayBaseComponentTheme(event.checked);
   }
 
-  private processOverlayBaseComponentTheme(checked: boolean) {
+  private processOverlayBaseComponentTheme(checked: boolean): void {
     const overlayContainerElement = this.overlayContainer.getContainerElement()
     const themeWrapperClassName = 'unicorn-dark-theme'
     if (checked) {
