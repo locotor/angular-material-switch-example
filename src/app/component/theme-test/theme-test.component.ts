@@ -199,7 +199,7 @@ export class ThemeTestComponent implements AfterViewInit {
     });
 
     this.barChart.data(data);
-    this.barChart.legend(false)
+    this.barChart.legend(false);
     this.barChart.scale('月均降雨量', {
       nice: true,
     });
@@ -231,14 +231,6 @@ export class ThemeTestComponent implements AfterViewInit {
     const colors10 = defaultTheme.colors10;
     colors10[0] = primary;
     colors10[1] = accent;
-    this.lineChart.theme({
-      colors10,
-      defaultColor: primary
-    });
-    this.barChart.theme({
-      colors10,
-      defaultColor: primary
-    });
     this.lineChart.render(true);
     this.barChart.render(true);
   }
