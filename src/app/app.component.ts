@@ -43,6 +43,6 @@ export class AppComponent {
     } else {
       overlayContainerElement.classList.remove(themeWrapperClassName);
     }
-
-
   }
+
+}
