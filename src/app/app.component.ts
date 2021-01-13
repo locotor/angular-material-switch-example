@@ -10,17 +10,14 @@ import { ThemeService } from './services/theme.service';
 })
 export class AppComponent {
 
-  themelist = [
-    'amber-lime',
-    'amber-lime-dark',
-    'deeppurple-amber',
-    'deeppurple-amber-dark',
-    'pink-bluegrey',
-    'pink-bluegrey-dark',
-    'purple-green',
-    'purple-green-dark'
+  themeList = [
+    'indigo-pink',
+    'green-orange',
+    'deep_purple-amber',
+    'blue_grey-orange',
+    'purple-red',
   ];
-  currentTheme = '';
+  currentTheme = 'indigo-pink';
   title = 'md-theme-test';
   isDarkMode = false;
 
@@ -29,20 +26,35 @@ export class AppComponent {
     private themeService: ThemeService
   ) { }
 
-  switchTheme(event: MatSlideToggleChange): void {
-    this.isDarkMode = event.checked;
-    this.processOverlayBaseComponentTheme(event.checked);
-    this.themeService.themeChangeAnno(this.isDarkMode ? 'green-orange' : 'indigo-pink');
+  darkModeSwitch(change: MatSlideToggleChange): void {
+    this.isDarkMode = change.checked;
+    let theme = '';
+    if (this.isDarkMode) {
+      theme = this.currentTheme + '-dark';
+    } else {
+      theme = this.currentTheme.replace(/-dark/g, '');
+    }
+    this.switchTheme(theme);
   }
 
-  private processOverlayBaseComponentTheme(checked: boolean): void {
-    const overlayContainerElement = this.overlayContainer.getContainerElement();
-    const themeWrapperClassName = 'unicorn-dark-theme';
-    if (checked) {
-      overlayContainerElement.classList.add(themeWrapperClassName);
-    } else {
-      overlayContainerElement.classList.remove(themeWrapperClassName);
+  themeColorSelect(select: string): void {
+    let theme = select;
+    if (this.isDarkMode) {
+      theme = select + '-dark';
     }
+    this.switchTheme(theme);
+  }
+
+  switchTheme(theme: string): void {
+    this.processOverlayBaseComponentTheme(theme);
+    this.themeService.themeChangeAnno(theme);
+  }
+
+  private processOverlayBaseComponentTheme(themeClass: string): void {
+    const overlayContainerElement = this.overlayContainer.getContainerElement();
+    overlayContainerElement.classList.remove(this.currentTheme);
+    overlayContainerElement.classList.add(themeClass);
+    this.currentTheme = themeClass;
   }
 
 }

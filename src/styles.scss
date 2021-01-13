@@ -1,11 +1,17 @@
-@import '~@angular/material/theming';
-@import './theme/green-orange-theme';
+@import "~@angular/material/theming";
+@import "./theme/green-orange-theme";
 
 // component themes
 @import "./app/app.component.theme.scss";
 @import "./app/component/theme-test/theme-test.component.theme";
 
 @include mat-core();
+
+@mixin custom-color-theme($theme) {
+  @include angular-material-color($theme);
+  @include app-component-color($theme);
+  @include theme-test-color($theme);
+}
 
 // 定义一个默认的颜色配置
 $candy-app-primary: mat-palette($mat-indigo);
@@ -23,28 +29,35 @@ $candy-app-theme: mat-light-theme(
 @include app-component-color($candy-app-theme);
 @include theme-test-color($candy-app-theme);
 
-@mixin custom-color-theme($theme) {
-  @include angular-material-color($theme);
-  @include app-component-color($theme);
-  @include theme-test-color($theme);
+.indigo-pink-dark {
+  @include custom-color-theme(
+    mat-dark-theme(
+      (
+        color: (
+          primary: $candy-app-primary,
+          accent: $candy-app-accent,
+        ),
+      )
+    )
+  );
 }
 
 $app-themes: (
-  amber-lime: (
-    primary: $mat-amber,
-    accent: $mat-lime,
+  green-orange: (
+    primary: $mat-green,
+    accent: $mat-orange,
   ),
-  deeppurple-amber: (
+  deep_purple-amber: (
     primary: $mat-deep-purple,
     accent: $mat-amber,
   ),
-  pink-bluegrey: (
-    primary: $mat-pink,
-    accent: $mat-blue-gray,
+  blue_grey-orange: (
+    primary: $mat-blue-gray,
+    accent: $mat-orange,
   ),
-  purple-green: (
+  purple-red: (
     primary: $mat-purple,
-    accent: $mat-green,
+    accent: $mat-red,
   ),
 );
 
@@ -66,14 +79,6 @@ $app-themes: (
   }
 
   .#{$css-class}-dark {
-    $dark-theme: mat-dark-theme(
-      (
-        color: (
-          primary: $primary,
-          accent: $accent,
-        ),
-      )
-    );
     @include custom-color-theme(
       mat-dark-theme(
         (

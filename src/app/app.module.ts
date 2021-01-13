@@ -19,6 +19,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { ProgressSpinnerCardComponent } from './component/progress-spinner-card/progress-spinner-card.component';
 
@@ -44,7 +45,8 @@ import { ProgressSpinnerCardComponent } from './component/progress-spinner-card/
     MatPaginatorModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
-    MatCardModule
+    MatCardModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

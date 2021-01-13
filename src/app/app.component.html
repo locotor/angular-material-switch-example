@@ -4,13 +4,13 @@
       <span>Theme Test App</span>
     </mat-toolbar-row>
     <mat-toolbar-row class="header-second-line">
-      <!-- <span>tool Line</span> -->
       <div class="example-spacer"></div>
+      <mat-slide-toggle style="font-size: 14px;" (change)="darkModeSwitch($event)">dark mode</mat-slide-toggle>
+      <mat-divider vertical style="height:15px; margin-left:15px;"></mat-divider>
       <button mat-button [matMenuTriggerFor]="menu">theme list</button>
       <!-- test for overlay-base component -->
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>默认</button>
-        <button mat-menu-item *ngFor="let theme of themelist" (click)="switchTheme(theme)">{{theme}}</button>
+        <button mat-menu-item *ngFor="let theme of themeList" (click)="themeColorSelect(theme)">{{theme}}</button>
       </mat-menu>
     </mat-toolbar-row>
   </mat-toolbar>

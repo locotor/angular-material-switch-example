@@ -45,12 +45,6 @@ export class ThemeTestComponent implements AfterViewInit {
   @ViewChild('lineChartsWrapper') lineChartsWrapper?: ElementRef;
   @ViewChild('barChartsWrapper') barChartsWrapper?: ElementRef;
 
-  tiles: Tile[] = [
-    { text: 'One', cols: 3, rows: 1, color: 'lightblue' },
-    { text: 'Two', cols: 1, rows: 2, color: 'lightgreen' },
-    { text: 'Three', cols: 1, rows: 1, color: 'lightpink' },
-    { text: 'Four', cols: 2, rows: 1, color: '#DDBDF1' },
-  ];
   folders: Section[] = [
     {
       name: 'Photos',
@@ -90,8 +84,8 @@ export class ThemeTestComponent implements AfterViewInit {
     this.themeService.themeChange.subscribe(theme => {
       const primary = theme.split('-')[0];
       const accent = theme.split('-')[1];
-      const primaryColor = this.themeService.palatte[primary];
-      const accentColor = this.themeService.palatte[accent];
+      const primaryColor = this.themeService.palette[primary];
+      const accentColor = this.themeService.palette[accent];
       if (primaryColor) {
         this.changeChartsTheme(primaryColor, accentColor);
       }
